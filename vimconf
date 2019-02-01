@@ -28,6 +28,7 @@ Plugin 'vim-gitgutter'
 Plugin 'ultisnips'
 Plugin 'vim-snippets'
 Plugin 'command-t'
+Plugin 'python-mode'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,10 +50,11 @@ set encoding=utf8
 set guifont=Source\ Code\ Pro\ for\ Powerline:h11
 set ruler
 set autoindent
-set rnu
+set nu
 set nobackup
 set noswapfile
 set hlsearch
+set tabstop=4
 " airline conf
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -64,7 +66,21 @@ let g:airline#extensions#branch#enabled=1
 syntax enable
 set background=dark
 colorscheme solarized
+" python-mode conf
+let g:pymode_python = 'python3'
+
+
 " my conf, always begin with 'm',and work in normal mode.
+" key map: m--<Myleader> s--source
 nnoremap mnt :NERDTreeToggle<CR>
 nnoremap mct :CommandT<CR>
-
+nnoremap mrc :vsp $MYVIMRC<CR>
+nnoremap msrc :source $MYVIMRC<CR>
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap [ []<ESC>i
+inoremap ( ()<ESC>i
+inoremap < <><ESC>i
+" abbreviation
+iabbrev @@ awhc7@icloud.com
+  
